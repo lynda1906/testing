@@ -1,2 +1,3 @@
 #!/usr/bin/env python3
-print("Hello, Pipeline")
+
+print("{}, {}".format(sys.argv[1], sys.argv[2]))
