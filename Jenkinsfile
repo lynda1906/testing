@@ -26,20 +26,23 @@ pipeline {
         stage('Report') {
             steps {
                 echo 'Deploying....'
-                emailext attachLog: true, body: 'This is a test', subject: 'Testing', to: 'lynda1@managedkaos.com'
 
             }
         }
     }
     post {
-       always { }
-       changed { }
-       fixed { }
-       regression { }
-       aborted { }
-       failure { }
-       success { }
-       unstable { }
-       cleanup { }
+        always {
+            emailext attachLog: true, body: 'This is a test', subject: 'Testing', to: 'lynda1@managedkaos.com'
+       }
+/*
+        changed { }
+        fixed { }
+        regression { }
+        aborted { }
+        failure { }
+        success { }
+        unstable { }
+        cleanup { }
+*/
     }
 }
