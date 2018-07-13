@@ -4,6 +4,12 @@ pipeline {
         string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet?')
         string(name: 'Name', defaultValue: 'World', description: 'Who should I greet?')
     }
+    options {
+        timeout(time: 1, unit: 'HOURS')
+    }
+    triggers {
+        cron('@midnight')
+    }
     stages {
         stage('Prep') {
             steps {
