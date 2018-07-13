@@ -5,21 +5,23 @@ pipeline {
         string(name: 'Name', defaultValue: 'World', description: 'Who should I greet?')
     }
     stages {
-        stage('Build') {
+        stage('Prep') {
             steps {
                 echo 'Stage: Building..'
                 sh 'python3 --version'
             }
         }
-        stage('Test') {
+        stage('Build') {
             steps {
                 echo 'Stage: Testing..'
                 sh "./script.py ${params.Greeting} ${params.Name}"
             }
         }
-        stage('Deploy') {
+        stage('Report') {
             steps {
                 echo 'Deploying....'
+                emailext attachLog: true, body: 'This is a test', subject: 'Testing', to: 'lynda1@managedkaos.com'
+
             }
         }
     }
