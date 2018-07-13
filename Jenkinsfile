@@ -31,4 +31,15 @@ pipeline {
             }
         }
     }
+    post {
+       always { }
+       changed { }
+       fixed { }
+       regression { }
+       aborted { }
+       failure { }
+       success { }
+       unstable { }
+       cleanup { }
+    }
 }
