@@ -5,6 +5,7 @@ pipeline {
         string(name: 'Name', defaultValue: 'World', description: 'Who should I greet?')
     }
     options {
+        buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '10', numToKeepStr: '10')
         timeout(time: 1, unit: 'HOURS')
     }
     triggers {
